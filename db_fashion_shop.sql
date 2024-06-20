@@ -1,12 +1,12 @@
 -- Category Table
 CREATE TABLE category (
-    id_category INT PRIMARY KEY,
+    id_category INT PRIMARY KEY AUTO_INCREMENT,
     category_name VARCHAR(255)
 );
 
 -- User Table
 CREATE TABLE user (
-    id_user INT PRIMARY KEY,
+    id_user INT PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(255),
     email VARCHAR(255),
     password VARCHAR(255),
@@ -15,7 +15,7 @@ CREATE TABLE user (
 
 -- Product Table
 CREATE TABLE product (
-    id_product INT PRIMARY KEY,
+    id_product INT PRIMARY KEY AUTO_INCREMENT,
     id_category INT,
     product_name VARCHAR(255),
     photo VARCHAR(255),
@@ -27,7 +27,7 @@ CREATE TABLE product (
 
 -- Order Table
 CREATE TABLE orders (
-    id_order INT PRIMARY KEY,
+    id_order INT PRIMARY KEY AUTO_INCREMENT,
     id_product INT,
     id_user INT,
     order_date DATE,
@@ -43,7 +43,7 @@ CREATE TABLE orders (
 INSERT INTO category (id_category, category_name) VALUES (1, 'Pakaian Pria'), (2, 'Pakaian Wanita'), (3, 'Aksesoris'), (4, 'Sepatu');
 
 -- Menambahkan data pada tabel user
-INSERT INTO user (id_user, user_name, email, password, role) VALUES (1, 'JohnDoe', 'john.doe@example.com', 'password123', 'owner'), (2, 'JaneSmith', 'jane.smith@example.com', 'password456', 'adminr');
+INSERT INTO user (id_user, user_name, email, password, role) VALUES (1, 'JohnDoe', 'john.doe@example.com', 'password123', 'owner'), (2, 'JaneSmith', 'jane.smith@example.com', 'password456', 'admin');
 
 -- Menambahkan data ada tabel produk
 INSERT INTO product (id_product, id_category, product_name, photo, description, stock, price) VALUES

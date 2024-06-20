@@ -35,11 +35,6 @@ class UsersService
         return $this->usersModel->insertUser($data);
     }
 
-    public function createUser($data)
-    {
-        return $this->usersModel->createUser($data);
-    }
-
     public function updateUser($id, $data)
     {
         return $this->usersModel->updateUser($id, $data);
