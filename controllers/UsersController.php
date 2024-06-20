@@ -26,14 +26,6 @@ class UsersController
         return json_encode(["message" => $result ? "User added successfully." : "Failed to add user."]);
     }
 
-    public function createUser()
-    {
-        $data = json_decode(file_get_contents("php://input"), true);
-        $result = $this->usersService->createUser($data);
-        echo json_encode(["message" => $result ? "User created successfully." : "Failed to create user."]);
-        exit();
-    }
-
     public function updateUser()
     {
         $data = json_decode(file_get_contents("php://input"), true);
