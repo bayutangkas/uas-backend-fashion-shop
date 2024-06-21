@@ -12,4 +12,10 @@ class OrderController
         $orderModel = new OrderModel($conn);
         $this->orderService = new OrderService($orderModel);
     }
+
+    public function readOrders()
+    {
+        $orders = $this->orderService->fetchAllOrders();
+        return json_encode($orders);
+    }
 }
