@@ -70,4 +70,22 @@ class ProductModel
             return false;
         }
     }
+
+    public function deleteProduct($id)
+    {
+        try
+        {
+            $query = "DELETE FROM " . $this->table_name . " WHERE id_product = :id_product";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(":id_product", $id);
+
+            return $stmt->execute();
+        }
+        catch (PDOException $e)
+        {
+            echo "Error: " . $e->getMessage();
+            return false;
+        }
+    }
 }
+?>
