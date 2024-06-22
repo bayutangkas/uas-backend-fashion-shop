@@ -18,18 +18,4 @@ class OrderController
         $orders = $this->orderService->fetchAllOrders();
         return json_encode($orders);
     }
-
-    public function addOrder()
-    {
-        $data = json_decode(file_get_contents("php://input"), true);
-        $result = $this->orderService->addOrder($data);
-        return json_encode(["message" => $result ? "Order added successfully." : "Failed to add order."]);
-    }
-
-    public function updateOrder()
-    {
-        $data = json_decode(file_get_contents("php://input"), true);
-        if (!isset($data['id_order'])) {
-            echo json_encode(["message" => "ID is required."]);
-            return;
-        }
+}
