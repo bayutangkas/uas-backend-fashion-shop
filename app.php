@@ -9,3 +9,8 @@ include_once 'middleware/Router.php';
 $database = new Database();
 $db = $database->getConnection();
 $router = new Router();
+
+$usersController = new UsersController($db);
+$productController = new ProductController($db);
+$categoryController = new CategoryController($db);
+$orderController = new OrderController($db);
