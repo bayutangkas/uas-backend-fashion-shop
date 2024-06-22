@@ -27,4 +27,20 @@ class CategoryService
         
         return $categories_array;
     }
+
+    public function addCategory($data)
+    {
+        return $this->categoryModel->insertCategory($data);
+    }
+
+    public function updateCategory($id, $data)
+    {
+        return $this->categoryModel->updateCategory($id, $data);
+    }
+
+    public function deleteCategory($id)
+    {
+        return $this->categoryModel->deleteCategory($id);
+    }
 }
+?>
