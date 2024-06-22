@@ -32,4 +32,20 @@ class ProductService
         
         return $products_array;
     }
+
+    public function addProduct($data)
+    {
+        return $this->productModel->insertProduct($data);
+    }
+
+    public function updateProduct($id, $data)
+    {
+        return $this->productModel->updateProduct($id, $data);
+    }
+
+    public function deleteProduct($id)
+    {
+        return $this->productModel->deleteProduct($id);
+    }
 }
+?>
