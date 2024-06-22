@@ -38,4 +38,18 @@ class ProductController
         echo json_encode(["message" => $result ? "Product updated successfully." : "Failed to update product."]);
         exit();
     }
+
+    public function deleteProduct()
+    {
+        $data = json_decode(file_get_contents("php://input"), true);
+        if (!isset($data['id_product'])) {
+            echo json_encode(["message" => "ID is required."]);
+            return;
+        }
+        $id = $data['id_product'];
+        $result = $this->productService->deleteProduct($id);
+        echo json_encode(["message" => $result ? "Product deleted successfully." : "Failed to delete product."]);
+        exit();
+    }
 }
+?>
