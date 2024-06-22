@@ -9,4 +9,22 @@ class CategoryService
     {
         $this->categoryModel = $categoryModel;
     }
+
+    public function fetchAllCategories()
+    {
+        $categories = $this->categoryModel->readAllCategories();
+        $categories_array = array();
+        $categories_array["records"] = array();
+        while ($row = $categories->fetch(PDO::FETCH_ASSOC))
+        {
+            extract($row);
+            $category_item = array(
+                "id_category" => $id_category,
+                "category_name" => $category_name
+            );
+            array_push($categories_array["records"], $category_item);
+        }
+        
+        return $categories_array;
+    }
 }
