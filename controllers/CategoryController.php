@@ -12,4 +12,10 @@ class CategoryController
         $categoryModel = new CategoryModel($conn);
         $this->categoryService = new CategoryService($categoryModel);
     }
+
+    public function readCategories()
+    {
+        $categories = $this->categoryService->fetchAllCategories();
+        return json_encode($categories);
+    }
 }
