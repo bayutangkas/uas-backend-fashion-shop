@@ -14,3 +14,8 @@ $usersController = new UsersController($db);
 $productController = new ProductController($db);
 $categoryController = new CategoryController($db);
 $orderController = new OrderController($db);
+
+$router->register('GET', '/api/user', [$usersController, 'readUsers']);
+$router->register('POST', '/api/user', [$usersController, 'addUser']);
+$router->register('PUT', '/api/user', [$usersController, 'updateUser']);
+$router->register('DELETE', '/api/user', [$usersController, 'deleteUser']);
