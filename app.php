@@ -34,3 +34,5 @@ $router->register('GET', '/api/order', [$orderController, 'readOrders']);
 $router->register('POST', '/api/order', [$orderController, 'addOrder']);
 $router->register('PUT', '/api/order', [$orderController, 'updateOrder']);
 $router->register('DELETE', '/api/order', [$orderController, 'deleteOrder']);
+
+$router->dispatch($_SERVER['REQUEST_METHOD'], parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
