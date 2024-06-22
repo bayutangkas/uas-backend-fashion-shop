@@ -12,4 +12,10 @@ class ProductController
         $productModel = new ProductModel($conn);
         $this->productService = new ProductService($productModel);
     }
+
+    public function readProducts()
+    {
+        $products = $this->productService->fetchAllProducts();
+        return json_encode($products);
+    }
 }
