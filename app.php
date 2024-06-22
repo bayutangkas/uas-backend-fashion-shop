@@ -19,3 +19,13 @@ $router->register('GET', '/api/user', [$usersController, 'readUsers']);
 $router->register('POST', '/api/user', [$usersController, 'addUser']);
 $router->register('PUT', '/api/user', [$usersController, 'updateUser']);
 $router->register('DELETE', '/api/user', [$usersController, 'deleteUser']);
+
+$router->register('GET', '/api/product', [$productController, 'readProducts']);
+$router->register('POST', '/api/product', [$productController, 'addProduct']);
+$router->register('PUT', '/api/product', [$productController, 'updateProduct']);
+$router->register('DELETE', '/api/product', [$productController, 'deleteProduct']);
+
+$router->register('GET', '/api/category', [$categoryController, 'readCategories']);
+$router->register('POST', '/api/category', [$categoryController, 'addCategory']);
+$router->register('PUT', '/api/category', [$categoryController, 'updateCategory']);
+$router->register('DELETE', '/api/category', [$categoryController, 'deleteCategory']);
