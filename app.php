@@ -29,3 +29,8 @@ $router->register('GET', '/api/category', [$categoryController, 'readCategories'
 $router->register('POST', '/api/category', [$categoryController, 'addCategory']);
 $router->register('PUT', '/api/category', [$categoryController, 'updateCategory']);
 $router->register('DELETE', '/api/category', [$categoryController, 'deleteCategory']);
+
+$router->register('GET', '/api/order', [$orderController, 'readOrders']);
+$router->register('POST', '/api/order', [$orderController, 'addOrder']);
+$router->register('PUT', '/api/order', [$orderController, 'updateOrder']);
+$router->register('DELETE', '/api/order', [$orderController, 'deleteOrder']);
