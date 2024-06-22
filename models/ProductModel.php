@@ -24,4 +24,26 @@ class ProductModel
             echo "Error: " . $e->getMessage();
         }
     }
+
+    public function insertProduct($data)
+    {
+        try
+        {
+            $query = "INSERT INTO " . $this->table_name . " (id_category, product_name, photo, description, stock, price) VALUES (:id_category, :product_name, :photo, :description, :stock, :price)";
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(":id_category", $data['id_category']);
+            $stmt->bindParam(":product_name", $data['product_name']);
+            $stmt->bindParam(":photo", $data['photo']);
+            $stmt->bindParam(":description", $data['description']);
+            $stmt->bindParam(":stock", $data['stock']);
+            $stmt->bindParam(":price", $data['price']);
+
+            return $stmt->execute();
+        }
+        catch (PDOException $e)
+        {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 }
