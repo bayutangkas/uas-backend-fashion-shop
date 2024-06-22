@@ -9,4 +9,19 @@ class ProductModel
         $this->conn = $db;
         $this->table_name = 'product';
     }
+
+    public function readAllProducts()
+    {
+        try
+        {
+            $query = "SELECT * FROM " . $this->table_name;
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            return $stmt;
+        }
+        catch (PDOException $e)
+        {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 }
