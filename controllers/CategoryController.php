@@ -25,4 +25,17 @@ class CategoryController
         $result = $this->categoryService->addCategory($data);
         return json_encode(["message" => $result ? "Category added successfully." : "Failed to add category."]);
     }
+
+    public function updateCategory()
+    {
+        $data = json_decode(file_get_contents("php://input"), true);
+        if (!isset($data['id_category'])) {
+            echo json_encode(["message" => "ID is required."]);
+            return;
+        }
+        $id = $data['id_category'];
+        $result = $this->categoryService->updateCategory($id, $data);
+        echo json_encode(["message" => $result ? "Category updated successfully." : "Failed to update category."]);
+        exit();
+    }
 }
