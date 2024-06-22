@@ -38,4 +38,18 @@ class CategoryController
         echo json_encode(["message" => $result ? "Category updated successfully." : "Failed to update category."]);
         exit();
     }
+
+    public function deleteCategory()
+    {
+        $data = json_decode(file_get_contents("php://input"), true);
+        if (!isset($data['id_category'])) {
+            echo json_encode(["message" => "ID is required."]);
+            return;
+        }
+        $id = $data['id_category'];
+        $result = $this->categoryService->deleteCategory($id);
+        echo json_encode(["message" => $result ? "Category deleted successfully." : "Failed to delete category."]);
+        exit();
+    }
 }
+?>
