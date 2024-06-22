@@ -18,4 +18,11 @@ class CategoryController
         $categories = $this->categoryService->fetchAllCategories();
         return json_encode($categories);
     }
+
+    public function addCategory()
+    {
+        $data = json_decode(file_get_contents("php://input"), true);
+        $result = $this->categoryService->addCategory($data);
+        return json_encode(["message" => $result ? "Category added successfully." : "Failed to add category."]);
+    }
 }
