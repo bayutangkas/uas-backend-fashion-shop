@@ -25,4 +25,17 @@ class ProductController
         $result = $this->productService->addProduct($data);
         return json_encode(["message" => $result ? "Product added successfully." : "Failed to add product."]);
     }
+
+    public function updateProduct()
+    {
+        $data = json_decode(file_get_contents("php://input"), true);
+        if (!isset($data['id_product'])) {
+            echo json_encode(["message" => "ID is required."]);
+            return;
+        }
+        $id = $data['id_product'];
+        $result = $this->productService->updateProduct($id, $data);
+        echo json_encode(["message" => $result ? "Product updated successfully." : "Failed to update product."]);
+        exit();
+    }
 }
